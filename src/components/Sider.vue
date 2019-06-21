@@ -48,6 +48,7 @@
         text-align: center;
         padding: .4rem 0;
         border-bottom: 1px solid #0094ff;
+
         img {
           display: block;
           width: 1rem;
