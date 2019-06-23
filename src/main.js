@@ -3,9 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Axios from 'axios'
 
+Vue.prototype.$axios = Axios;
 import remConfig from '../config/remConfig'
 import "@/assets/css/base.css"
+
 remConfig()
 Vue.config.productionTip = false
 

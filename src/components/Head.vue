@@ -2,13 +2,13 @@
   <div class="head">
     <div class="main">
       <div class="normal-manu">
-        <i class="iconfont iconcaidan"></i>
+        <i class="iconfont iconcaidan" @click="openSider"></i>
       </div>
       <div class="default-menu">
         <i class="iconfont iconjiantou-xia"></i>
       </div>
     </div>
-    <Sider></Sider>
+    <Sider :class="{open:isOpen}"></Sider>
   </div>
 </template>
 
@@ -22,9 +22,22 @@
       Sider
     },
     data() {
-      return {}
+      return {
+        isOpen: false,
+        isOver: false,
+      }
     },
-    methods: {}
+    methods: {
+      openSider: function () {
+        this.isOpen = true;
+        this.isOver = true
+
+      },
+      closeSider: function () {
+        this.isOpen = false
+        this.isOver = false
+      }
+    }
   }
 </script>
 
