@@ -5,10 +5,25 @@
         <i class="iconfont iconcaidan" @click="openSider"></i>
       </div>
       <div class="default-menu">
-        <i class="iconfont iconjiantou-xia"></i>
+        <i class="iconfont iconjiantou-xia" @click="show = !show"></i>
       </div>
     </div>
     <Sider :class="{open:isOpen}"></Sider>
+    <transition name="el-fade-in-linear">
+      <div v-show="show" class="square transition-box">
+        <div class="square-wrap">
+          <div>
+            <span>发表动态</span>
+          </div>
+          <div>
+            <span>扫一扫</span>
+          </div>
+          <div>
+            <span>添加朋友</span>
+          </div>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -25,6 +40,7 @@
       return {
         isOpen: false,
         isOver: false,
+        show: false
       }
     },
     methods: {
@@ -42,6 +58,48 @@
 </script>
 
 <style scoped lang="less">
+
+
+  .square {
+    width: 3rem;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    background: #333333;
+    position: absolute;
+    right: .1rem;
+    top: 1.2rem;
+    border-radius: .1rem;
+    padding: .2rem;
+
+    .square-wrap {
+      position: relative;
+
+      div {
+        height: .8rem;
+        line-height: .8rem;
+
+        span {
+          font-size: .26rem;
+          color: #ffffff;
+        }
+      }
+
+
+    }
+
+    .square-wrap:after {
+      content: '';
+      display: block;
+      width: 1px;
+      border-top: .1rem solid transparent;
+      border-right: .1rem solid transparent;
+      border-bottom: .1rem solid #333333;
+      border-left: .1rem solid transparent;
+      position: absolute;
+      right: 0;
+      top: -.4rem;
+    }
+  }
+
   .iconfont {
     font-size: .44rem;
   }
@@ -49,9 +107,13 @@
   .head {
     width: 100%;
     height: 1rem;
-    background-image: linear-gradient(90deg, #0af, #0085ff);
+    /*background-image: linear-gradient(90deg, #0af, #0085ff);*/
+    background: #333333;
     position: fixed;
     top: 0;
+    z-index: 9;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #dddddd;
 
     .main {
       width: 100%;
