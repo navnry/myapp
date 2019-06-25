@@ -1,16 +1,22 @@
 <template>
   <div class="music">
-    <el-tabs v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane stretch="a" label="推荐" name="recommend">
+    <div class="music-tab">
+      <ul>
+        <li v-for="(title,index) in tabTitle" @click="cur=index" :class="{active:cur==index}"><span>{{title}}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="music-content">
+      <div class="recommond" v-show="cur==0">
         <m-recommond></m-recommond>
-      </el-tab-pane>
-      <el-tab-pane stretch="a" label="排行榜" name="rank">
+      </div>
+      <div class="rank" v-show="cur==1">
         <m-rank></m-rank>
-      </el-tab-pane>
-      <el-tab-pane stretch="a" label="搜索" name="search">
+      </div>
+      <div class="search" v-show="cur==2">
         <m-search></m-search>
-      </el-tab-pane>
-    </el-tabs>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -28,6 +34,8 @@
     },
     data() {
       return {
+        tabTitle: ['推荐', '排行榜', '搜索'],
+        cur: 0,
         activeName: 'recommend'
       }
     },
@@ -50,6 +58,37 @@
     left: 0;
     transition: left .2s linear;
     z-index: 1000;
+
+    .music-tab {
+      height: .8rem;
+      background: #ffffff;
+
+      ul {
+        display: flex;
+
+
+        li {
+          width: 33.33%;
+          text-align: center;
+
+          span {
+            display: block;
+            font-size: .32rem;
+            line-height: .72rem;
+            padding: .02rem 0;
+            margin: 0 .3rem;
+          }
+        }
+
+        li.active {
+          span {
+            color: #00aaff;
+            border-bottom: .04rem solid #00aaff;
+          }
+        }
+
+      }
+    }
   }
 
   .el-tabs__header {

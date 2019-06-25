@@ -1,13 +1,13 @@
 <template>
   <div class="friend">
     <van-notice-bar
-      text="该页面无效"
+      text="暂未开发，敬请期待"
       left-icon="warning-o"
       mode="closeable"/>
     <div class="person-wrap">
       <div class="person-item">
         <b class="red"><i class="el-icon-user"></i></b>
-        <span>新的朋友</span>
+        <span> 新的朋友 </span>
       </div>
       <div class="person-item">
         <b class="blue"> <i class="el-icon-money"></i></b>
@@ -82,6 +82,20 @@
         color: #333333;
         padding-left: .2rem;
         border-bottom: solid #eeeeee 1px;
+
+        .badge {
+          display: flex;
+          .el-badge__content.is-fixed{
+            top: 0;
+            bottom: 0;
+            margin: auto;
+          }
+          .el-badge__content {
+            top: 0;
+            bottom: 0;
+            margin: auto;
+          }
+        }
       }
 
 
