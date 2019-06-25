@@ -1,9 +1,9 @@
 <template>
   <div class="Find">
     <div class="find-wrap">
-      <div class="find-item" :plain="true" @click="open">
-        <i class="el-icon-camera"></i>
-        <span>发表动态</span>
+      <div class="find-item" :plain="true">
+        <i class="el-icon-orange"></i>
+        <span>朋友圈</span>
       </div>
     </div>
     <div class="find-wrap">
@@ -14,12 +14,16 @@
     </div>
     <div class="find-wrap">
       <div class="find-item">
-        <i class="el-icon-headset"></i>
-        <span>最新音乐</span>
+        <router-link :to="`/find/music`">
+          <i class="el-icon-headset"></i>
+          <span>最新音乐</span>
+        </router-link>
       </div>
       <div class="find-item">
-        <i class="el-icon-video-camera-solid"></i>
-        <span>最近电影</span>
+        <router-link :to="`/find/film`">
+          <i class="el-icon-video-camera-solid"></i>
+          <span>最近电影</span>
+        </router-link>
       </div>
     </div>
     <div class="find-wrap">
@@ -34,6 +38,7 @@
         <span>关于</span>
       </div>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -44,8 +49,9 @@
       return {}
     },
     methods: {
-      open() {
-        this.$message('功能尚未开发，敬请期待');
+      goTo(place) {
+        let url = `/${place}/`
+        this.$router.push(url)
       },
     }
   }
@@ -65,6 +71,10 @@
       background: #ffffff;
       padding: 0 .2rem;
       border-bottom: solid #eeeeee 1px;
+
+      a {
+        display: block;
+      }
 
       span {
         font-size: .32rem;

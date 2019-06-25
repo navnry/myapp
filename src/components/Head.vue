@@ -12,7 +12,7 @@
     <transition name="el-fade-in-linear">
       <div v-show="show" class="square transition-box">
         <div class="square-wrap">
-          <div>
+          <div @click="showModol">
             <span>发表动态</span>
           </div>
           <div>
@@ -20,6 +20,9 @@
           </div>
           <div>
             <span>添加朋友</span>
+          </div>
+          <div>
+            <span>帮助</span>
           </div>
         </div>
       </div>
@@ -30,6 +33,7 @@
 <script>
 
   import Sider from "@/components/Sider"
+  import {Toast} from 'vant';
 
   export default {
     name: "Head",
@@ -44,14 +48,16 @@
       }
     },
     methods: {
-      openSider: function () {
+      openSider() {
         this.isOpen = true;
         this.isOver = true
-
       },
-      closeSider: function () {
+      closeSider() {
         this.isOpen = false
         this.isOver = false
+      },
+      showModol() {
+        Toast('暂未开发，敬请期待')
       }
     }
   }
@@ -113,7 +119,7 @@
     top: 0;
     z-index: 9;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid #dddddd;
+    /*border-bottom: 1px solid #dddddd;*/
 
     .main {
       width: 100%;

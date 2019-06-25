@@ -67,7 +67,6 @@
         let _that = this;
         let geolocation = location.initMap("map-container"); //定位
         AMap.event.addListener(geolocation, "complete", res => {
-          console.log(res);
           _that.lat = res.position.lat;
           _that.lng = res.position.lng;
           _that.province = res.addressComponent.province;

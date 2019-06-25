@@ -7,7 +7,25 @@ import Axios from 'axios'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import {Button} from 'vant';
+import {Popup} from 'vant';
+import {DropdownMenu, DropdownItem} from 'vant';
+import {Toast} from 'vant';
+import {Tabbar, TabbarItem} from 'vant';
+import {Swipe, SwipeItem} from 'vant';
+import {IndexBar, IndexAnchor} from 'vant';
+import { NoticeBar } from 'vant';
+import { Lazyload } from 'vant';
+import { Tab, Tabs } from 'vant';
 
+Vue.use(Tab).use(Tabs);
+Vue.use(Lazyload);
+Vue.use(NoticeBar);
+Vue.use(IndexBar).use(IndexAnchor);
+Vue.use(Swipe).use(SwipeItem);
+Vue.use(Tabbar).use(TabbarItem);
+Vue.use(Toast);
+Vue.use(DropdownMenu).use(DropdownItem);
+Vue.use(Popup);
 Vue.use(Button);
 Vue.use(ElementUI);
 Vue.prototype.$axios = Axios;
