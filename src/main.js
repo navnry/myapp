@@ -6,13 +6,13 @@ import router from './router'
 import Axios from 'axios'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import {Button} from 'vant';
-import {Popup} from 'vant';
-import {DropdownMenu, DropdownItem} from 'vant';
-import {Toast} from 'vant';
-import {Tabbar, TabbarItem} from 'vant';
-import {Swipe, SwipeItem} from 'vant';
-import {IndexBar, IndexAnchor} from 'vant';
+import { Button } from 'vant';
+import { Popup } from 'vant';
+import { DropdownMenu, DropdownItem } from 'vant';
+import { Toast } from 'vant';
+import { Tabbar, TabbarItem } from 'vant';
+import { Swipe, SwipeItem } from 'vant';
+import { IndexBar, IndexAnchor } from 'vant';
 import { NoticeBar } from 'vant';
 import { Lazyload } from 'vant';
 import { Tab, Tabs } from 'vant';
@@ -37,8 +37,8 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: {App},
-  template: '<App/>'
+    el: '#app',
+    router,
+    components: { App },
+    template: '<App/>'
 })
