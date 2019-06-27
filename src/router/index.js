@@ -46,6 +46,11 @@ const MusicSearch = resolve => {
     resolve(module)
   })
 }
+const Login = resolve => {
+  import('@/page/login/Login').then((module) => {
+    resolve(module)
+  })
+}
 
 
 export default new Router({
@@ -53,7 +58,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/messge'
+      redirect: '/login'
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/messge',

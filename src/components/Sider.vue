@@ -2,7 +2,7 @@
   <div class="sider" @click="closeSider">
     <div class="sider-wrap" @click.stop>
       <div class="sider-head">
-        <img src="" alt="">
+        <img src="" alt="" @click="toLogin">
         <span>{{username}}</span>
       </div>
       <div class="side-content">
@@ -29,18 +29,18 @@
         activeNames: ['1']
       }
     },
-    mounted() {
+    created() {
       this.getLocation()
-      // this.$axios.get("http://wthrcdn.etouch.cn/weather_mini?city=长沙").then(res => {
-      this.$axios.get("https://www.tianqiapi.com/api/").then(res => {
-        this.wendu = res.data.data[1].tem
+      this.$axios.get("http://wthrcdn.etouch.cn/weather_mini?city=长沙").then(res => {
+      // this.$axios.get("https://www.tianqiapi.com/api/").then(res => {
+        this.wendu = res.data.data.wendu
       }).catch(err => {
         console.log(err);
       })
     },
     methods: {
-      handleChange(val) {
-        console.log(val);
+      toLogin() {
+        this.$router.replace('/login');
       },
       closeSider: function () {
         this.$parent.closeSider();
