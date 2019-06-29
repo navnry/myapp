@@ -3,61 +3,6 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-
-const Messge = resolve => {
-    import ('@/components/Messge').then((module) => {
-        resolve(module)
-    })
-}
-const Friend = resolve => {
-    import ('@/components/Friend').then((module) => {
-        resolve(module)
-    })
-}
-const Find = resolve => {
-    import ('@/components/Find').then((module) => {
-        resolve(module)
-    })
-}
-const Film = resolve => {
-    import ('@/page/film/Film').then((module) => {
-        resolve(module)
-    })
-}
-
-const Music = resolve => {
-    import ('@/page/music/Music').then((module) => {
-        resolve(module)
-    })
-}
-const MusicRecommond = resolve => {
-    import ('@/page/music/Recommond').then((module) => {
-        resolve(module)
-    })
-}
-
-const MusicRank = resolve => {
-    import ('@/page/music/Rank').then((module) => {
-        resolve(module)
-    })
-}
-const MusicSearch = resolve => {
-    import ('@/page/music/Search').then((module) => {
-        resolve(module)
-    })
-}
-const Login = resolve => {
-    import ('@/page/login/Login').then((module) => {
-        resolve(module)
-    })
-}
-
-const Regist = resolve => {
-    import ('@/page/regist/Regist').then((module) => {
-        resolve(module)
-    })
-}
-
 export default new Router({
     mode: 'hash',
     routes: [{
@@ -67,46 +12,66 @@ export default new Router({
         {
             path: '/login',
             name: 'Login',
-            component: Login
+            component: () =>
+                import ("@/page/login/Login"),
+            meta: {
+                isLogin: false
+            }
         },
+
         {
             path: '/regist',
             name: 'Regist',
-            component: Regist
+            component: () =>
+                import ("@/page/regist/Regist"),
+            meta: {
+                isLogin: false
+            }
         },
         {
             path: '/messge',
             name: 'Messge',
-            component: Messge
+            component: () =>
+                import ('@/components/Messge'),
+            meta: {
+                isLogin: true
+            }
         },
 
         {
             path: '/friend',
             name: 'Friend',
-            component: Friend
+            component: () =>
+                import ('@/components/Friend')
         },
         {
             path: '/find',
             name: "Find",
-            component: Find,
+            component: () =>
+                import ('@/components/Find'),
             children: [{
                     path: '/find/film',
-                    component: Film
+                    component: () =>
+                        import ('@/page/film/Film')
                 },
                 {
                     path: '/find/music',
-                    component: Music,
+                    component: () =>
+                        import ('@/page/music/Music'),
                     children: [{
                             path: '/find/music/recommond',
-                            component: MusicRecommond,
+                            component: () =>
+                                import ('@/page/music/Recommond'),
                         },
                         {
                             path: '/find/music/rank',
-                            component: MusicRank
+                            component: () =>
+                                import ('@/page/music/Rank')
                         },
                         {
                             path: '/find/music/search',
-                            component: MusicSearch
+                            component: () =>
+                                import ('@/page/music/Search')
                         },
                     ]
                 }

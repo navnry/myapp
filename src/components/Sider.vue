@@ -29,14 +29,8 @@
         activeNames: ['1']
       }
     },
-    created() {
-      this.getLocation()
-      this.$axios.get("http://wthrcdn.etouch.cn/weather_mini?city=长沙").then(res => {
-      // this.$axios.get("https://www.tianqiapi.com/api/").then(res => {
-        this.wendu = res.data.data.wendu
-      }).catch(err => {
-        console.log(err);
-      })
+    mounted() {
+      this._getLocation()
     },
     methods: {
       toLogin() {
@@ -45,16 +39,11 @@
       closeSider: function () {
         this.$parent.closeSider();
       },
-      getLocation() {
+      _getLocation() {
         let _that = this;
         let geolocation = location.initMap("map-container"); //定位
         AMap.event.addListener(geolocation, "complete", res => {
-          _that.lat = res.position.lat;
-          _that.lng = res.position.lng;
-          _that.province = res.addressComponent.province;
-          _that.city = res.addressComponent.city;
-          _that.district = res.addressComponent.district;
-          _that.address = _that.city + _that.district
+      
         });
       },
     }
