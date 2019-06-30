@@ -2,10 +2,10 @@
   <div class="login">
     <div class="login-wrap">
       <div>
-        <el-input placeholder="请输入用户名" v-model="username" clearable></el-input>
+        <el-input placeholder="请输入用户名" prefix-icon="el-icon-user" v-model="username" clearable></el-input>
       </div>
       <div>
-        <el-input placeholder="请输入密码" v-model="password" show-password></el-input>
+        <el-input placeholder="请输入密码" prefix-icon="el-icon-lock" v-model="password" show-password></el-input>
       </div>
       <div>
         <el-button type="primary" @click="login">登录</el-button>
@@ -35,7 +35,7 @@ export default {
   methods: {
     login() {
       console.log(this.$store.state.isLogin);
-      
+
       var _this = this;
       if (_this.username == "") {
         _this.showmode = true;
@@ -63,7 +63,7 @@ export default {
 
               //设置Vuex登录标志为true，默认userLogin为false
               _this.$store.dispatch("userLogin", true);
-           
+
               //Vuex在用户刷新的时候userLogin会回到默认值false，所以我们需要用到HTML5储存
               //我们设置一个名为Flag，值为isLogin的字段，作用是如果Flag有值且为isLogin的时候，证明用户已经登录了。
               localStorage.setItem("Flag", "isLogin");
@@ -86,7 +86,7 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(135deg, #00aaff, #0094ff);
+  background: url("../../assets/images/timg.jpg") center center /cover no-repeat;
   z-index: 9999;
   display: flex;
   align-items: center;
