@@ -8,14 +8,12 @@
 </template>
 
 <script>
-
   export default {
     name: "Messge",
     data() {
       return {}
     },
     mounted() {
-
     },
     methods: {}
   }

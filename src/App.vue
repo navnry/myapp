@@ -15,6 +15,7 @@
     components: {
       'm-header': Head,
       'm-tabbar': Tabbar,
+      isLogin:false
     }
   }
 </script>

@@ -8,10 +8,7 @@
       <div class="side-content">
 
       </div>
-      <div class="sider-footer">
-        <span>{{address}}</span>
-        <span>{{wendu}}</span>
-      </div>
+      <el-button type="text" @click="open">退出登录</el-button>
     </div>
   </div>
 </template>
@@ -19,33 +16,48 @@
 <script>
   // import BMap from 'BMap'
   import {location} from "@/assets/js/LocationUtil";
+  import store from "../store";
 
   export default {
     data() {
       return {
         username: "未登录",
-        wendu: 0,
-        address: '正在定位...',
         activeNames: ['1']
       }
     },
     mounted() {
-      this._getLocation()
+      this.username = localStorage.userName
     },
     methods: {
+      edit() {
+        localStorage.removeItem("Flag")
+        setTimeout(() => {
+          this.$router.push("/login")
+        }, 2000)
+      },
       toLogin() {
         this.$router.replace('/login');
       },
       closeSider: function () {
         this.$parent.closeSider();
       },
-      _getLocation() {
-        let _that = this;
-        let geolocation = location.initMap("map-container"); //定位
-        AMap.event.addListener(geolocation, "complete", res => {
-      
+      open() {
+        this.$confirm('确认退出登录?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '成功退出!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '取消退出'
+          });
         });
-      },
+      }
     }
   }
 </script>
@@ -62,7 +74,6 @@
     opacity: 0;
     visibility: hidden;
     transition: all .3s linear;
-
 
     .sider-wrap {
       width: 60%;
@@ -111,7 +122,6 @@
       }
     }
   }
-
 
   .sider.open {
     opacity: 1;

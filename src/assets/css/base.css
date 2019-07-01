@@ -114,6 +114,10 @@ body {
   font-size: 12px;
 }
 
+body.fixed {
+  overflow: hidden;
+}
+
 input {
   font-family: 'Microsoft YaHei';
 }

@@ -50,11 +50,14 @@
     methods: {
       openSider() {
         this.isOpen = true;
-        this.isOver = true
+        this.isOver = true;
+        console.log(document.getElementsByTagName("body"));
+        document.getElementsByTagName("body")[0].className="fixed";
       },
       closeSider() {
         this.isOpen = false
         this.isOver = false
+        document.getElementsByTagName("body")[0].className="";
       },
       showModol() {
         Toast('暂未开发，敬请期待')

@@ -36,7 +36,7 @@ export default {
   },
 
   mounted() {
- 
+
   },
   methods: {
     registSubmit() {
@@ -60,7 +60,7 @@ export default {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(145deg, #6859ea, #6acbe0);
+  background: url("../../assets/images/timg.jpg") center center /cover no-repeat;
   top: 0;
   z-index: 9999;
   display: flex;
